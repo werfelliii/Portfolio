@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio - Youssef Ouerfelli</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <nav>
+    <div class="nav-content">
+        <h1>Youssef Ouerfelli</h1>
+        <ul>
+            <li><a href="#about">À propos</a></li>
+            <li><a href="#formation">Formation</a></li>
+            <li><a href="#skills">Compétences</a></li>
+            <li><a href="#projets">Projets</a></li>
+            <li><a href="#contact" class="btn-contact">Contact</a></li>
+        </ul>
+        <button id="theme-toggle" style="background:none; border:none; font-size:1.5rem; cursor:pointer; margin-left:15px;">
+            🌙
+        </button>
+    </div>
+</nav>
+
+    <div class="container">
+        
+        <header id="about" class="hero page-section active">
+            <h2>Étudiant en L3 MIASHS</h2>
+            <p>Passionné par l'intersection entre les <strong>Mathématiques</strong>, l'<strong>Informatique</strong> et la <strong>Finance</strong>. Actuellement étudiant à l'UVSQ et fort d'une expérience en analyse financière.</p>
+            <div class="skills-summary">
+                <span class="tag">Analyse de données</span>
+                <span class="tag">Python & SQL</span>
+                <span class="tag">Modélisation Mathématique</span>
+                <span class="tag">Finance de Marché</span>
+            </div>
+        </header>
+
+        <section id="formation" class="page-section">
+            <h3 class="section-title">Formation Académique</h3>
+            
+            <div class="card">
+                <div class="card-header">
+                    <h4>L3 MIASHS (Mathématiques et Info. Appliquées aux SHS)</h4>
+                    <span class="date">Sept 2025 - Présent</span>
+                </div>
+                <p class="school">Université de Versailles - Saint-Quentin-en-Yvelines</p>
+                <p>Spécialisation mêlant mathématiques avancées, informatique et économie.</p>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <h4>Licence de Mathématiques</h4>
+                    <span class="date">2021 - 2025</span>
+                </div>
+                <p class="school">Université de Versailles - Saint-Quentin-en-Yvelines</p>
+                <p>Acquisition d'un socle théorique fort : Algèbre, Analyse, Probabilités.</p>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <h4>Certificat Développement Web Full-Stack</h4>
+                    <span class="date">Été 2023</span>
+                </div>
+                <p class="school">GOMYCODE</p>
+                <p>Formation intensive : HTML5, CSS3, JavaScript, GitHub.</p>
+            </div>
+        </section>
+
+        <section id="skills" class="page-section">
+    <h3 class="section-title">Compétences & Matières Étudiées</h3>
+
+    <div class="skills-filter">
+        <button class="filter-btn active" data-filter="all">Tout voir</button>
+        <button class="filter-btn" data-filter="math">Mathématiques</button>
+        <button class="filter-btn" data-filter="info">Informatique & Data</button>
+        <button class="filter-btn" data-filter="eco">Eco & Finance</button>
+        <button class="filter-btn" data-filter="socio">Sociologie (MIASHS)</button>
+    </div>
+
+    <div class="skills-grid">
+        
+        <div class="skill-item" data-category="math info" 
+             data-title="Optimisation & Applications"
+             data-desc="Calcul différentiel, convexité, algorithmes de descente (Gradient, Newton), conditions de Karush-Kuhn-Tucker (KKT). Implémentation numérique en Python.">
+            <span class="icon">📐</span>
+            <h4>Optimisation</h4>
+            <span class="tag-mini">Maths & Info</span>
+        </div>
+
+        <div class="skill-item" data-category="math data" 
+             data-title="Probabilités Avancées"
+             data-desc="Axiomatique de Kolmogorov, variables aléatoires discrètes et continues, vecteurs gaussiens, Loi des grands nombres, Théorème Central Limite, Méthode de Monte Carlo.">
+            <span class="icon">🎲</span>
+            <h4>Probabilités</h4>
+            <span class="tag-mini">Maths</span>
+        </div>
+
+        <div class="skill-item" data-category="math" 
+             data-title="Analyse Réelle & Complexe"
+             data-desc="Calcul intégral (Riemann & Lebesgue), équations différentielles, séries numériques et de fonctions, fonctions holomorphes, calcul de résidus.">
+            <span class="icon">∫</span>
+            <h4>Analyse Mathématique</h4>
+            <span class="tag-mini">Maths</span>
+        </div>
+
+        <div class="skill-item" data-category="info math" 
+             data-title="Analyse Numérique & Python"
+             data-desc="Résolution de systèmes linéaires (LU, Cholesky), interpolation polynomiale, résolution approchée d'équations différentielles. Programmation scientifique avec NumPy/SciPy.">
+            <span class="icon">🐍</span>
+            <h4>Python & Analyse Numérique</h4>
+            <span class="tag-mini">Info</span>
+        </div>
+
+        <div class="skill-item" data-category="math" 
+             data-title="Algèbre Linéaire & Générale"
+             data-desc="Espaces vectoriels, diagonalisation (valeurs/vecteurs propres), formes quadratiques, théorie des groupes et anneaux.">
+            <span class="icon">∑</span>
+            <h4>Algèbre</h4>
+            <span class="tag-mini">Maths</span>
+        </div>
+
+        <div class="skill-item" data-category="eco" 
+             data-title="Risque et Marchés Financiers"
+             data-desc="Compréhension des produits financiers, modélisation du risque, gestion de portefeuille, théorie moderne du portefeuille (Markowitz).">
+            <span class="icon">📈</span>
+            <h4>Risque & Marchés</h4>
+            <span class="tag-mini">Finance</span>
+        </div>
+
+        <div class="skill-item" data-category="eco finance" 
+            data-title="Monnaie & Finance Internationale"
+            data-desc="Étude des mécanismes de change, de la balance des paiements et du système monétaire international. Analyse des politiques monétaires en économie ouverte.">
+            <span class="icon">🌍</span>
+            <h4>Monnaie & Finance Int.</h4>
+            <span class="tag-mini">Eco / Finance</span>
+        </div>
+
+        <div class="skill-item" data-category="eco math" 
+             data-title="Économétrie & Séries Temporelles"
+             data-desc="Modèles de régression linéaire, tests statistiques, analyse de séries temporelles pour la prévision économique.">
+            <span class="icon">📊</span>
+            <h4>Économétrie</h4>
+            <span class="tag-mini">Eco / Data</span>
+        </div>
+
+        <div class="skill-item" data-category="eco math" 
+             data-title="Introduction à la Théorie des Jeux"
+             data-desc="Modélisation des interactions stratégiques, équilibres de Nash, jeux coopératifs et non-coopératifs.">
+            <span class="icon">♟️</span>
+            <h4>Théorie des Jeux</h4>
+            <span class="tag-mini">Eco</span>
+        </div>
+
+        <div class="skill-item" data-category="socio data" 
+             data-title="Sociologie : Analyse de Données"
+             data-desc="Méthodes quantitatives appliquées aux sciences sociales, traitement d'enquêtes, statistiques descriptives et inférentielles sur données sociales.">
+            <span class="icon">👥</span>
+            <h4>Analyse de Données (Socio)</h4>
+            <span class="tag-mini">Socio</span>
+        </div>
+
+         <div class="skill-item" data-category="socio" 
+             data-title="Sociologie des Réseaux"
+             data-desc="Analyse des structures relationnelles, théorie des graphes appliquée aux réseaux sociaux, centralité et cohésion.">
+            <span class="icon">🕸️</span>
+            <h4>Sociologie des Réseaux</h4>
+            <span class="tag-mini">Socio</span>
+        </div>
+
+        <div class="skill-item" data-category="socio" 
+            data-title="Sociologie de l'Éducation"
+            data-desc="Analyse des inégalités de parcours scolaires, du rapport entre les familles et l'école, et des déterminants sociaux de la réussite éducative.">
+            <span class="icon">🎓</span>
+            <h4>Sociologie de l'Éducation</h4>
+            <span class="tag-mini">Socio</span>
+        </div>
+
+        <div class="skill-item" data-category="socio" 
+            data-title="Sociologie de la Famille & du Genre"
+            data-desc="Étude des transformations des structures familiales contemporaines, de la construction sociale du genre et de la division du travail domestique.">
+            <span class="icon">🏠</span>
+            <h4>Famille & Genre</h4>
+            <span class="tag-mini">Socio</span>
+        </div>
+
+    </div>
+</section>
+
+<div id="skillModal" class="modal">
+    <div class="modal-content" style="max-width: 500px; height: auto; min-height: 300px;">
+        <div class="modal-header">
+            <h2 id="skillModalTitle">Titre de la matière</h2>
+            <span class="close skill-close">&times;</span>
+        </div>
+        <div style="padding: 20px;">
+            <p id="skillModalDesc" style="font-size: 1.1rem; line-height: 1.6; color: var(--text-secondary);">
+                Description...
+            </p>
+        </div>
+    </div>
+</div>
+
+        <section id="projets" class="page-section">
+            <h3 class="section-title">Projets & Réalisations</h3>
+            
+            <div class="project-grid">
+<div class="project-card">
+    <div class="card-header">
+        <h4>Automatisation & Gestion de Portefeuille</h4>
+        <span class="date">Juillet - Août 2024</span>
+    </div>
+    <p class="school">GAT INVESTISSEMENT</p>
+    
+    <p class="project-desc">
+        Optimisation d'un fichier de suivi financier critique pour l'entreprise.
+        Passage d'une saisie manuelle à une solution 100% automatisée.
+    </p>
+
+    <ul style="list-style: disc; margin-left: 20px; color: var(--text-secondary); margin-bottom: 15px; font-size: 0.9rem;">
+        <li><strong>VBA & Scraping :</strong> Création de scripts pour importer automatiquement les cours de bourse et dividendes depuis le web.</li>
+        <li><strong>Modélisation :</strong> Calcul automatique des rendements journaliers et matrices de corrélation dynamiques.</li>
+        <li><strong>Optimisation :</strong> Utilisation du <em>Solveur Excel</em> pour créer un portefeuille optimal (Ratio de Sharpe).</li>
+    </ul>
+
+    <div class="tags-group">
+        <span class="tag-small">VBA / Macros</span>
+        <span class="tag-small">Excel Solver</span>
+        <span class="tag-small">Automatisation</span>
+        <span class="tag-small">Finance de Marché</span>
+    </div>
+
+    <div style="margin-top: 20px;">
+        <a href="#" id="openPdfBtn" class="btn-contact" style="font-size: 0.85rem; padding: 6px 12px; text-decoration: none;"">
+    Lire le rapport
+</a>
+    </div>
+</div>
+                <div class="project-card">
+    <div class="card-header">
+        <h4>Modélisation : Action d'un Médicament</h4>
+        <span class="date">2023 - 2024</span>
+    </div>
+    <p class="school">Projet Académique (L3)</p>
+    
+    <p class="project-desc">
+        Étude de la pharmacocinétique et de la pharmacodynamique : comment un médicament se diffuse et agit sur une tumeur.
+    </p>
+
+    <ul style="list-style: disc; margin-left: 20px; color: var(--text-secondary); margin-bottom: 15px; font-size: 0.9rem;">
+        <li><strong>Simulations Python :</strong> Développement de scripts pour visualiser l'évolution de la concentration plasmatique.</li>
+        <li><strong>Mathématiques Avancées :</strong> Comparaison d'analyses compartimentales vs non-compartimentales et équations différentielles avec retard.</li>
+        <li><strong>Analyse de Stabilité :</strong> Étude des points d'équilibre pour modéliser la dégradation tumorale.</li>
+    </ul>
+
+    <div class="tags-group">
+        <span class="tag-small">Python</span>
+        <span class="tag-small">Équations Différentielles</span>
+        <span class="tag-small">Modélisation</span>
+    </div>
+
+    <div style="margin-top: 20px;">
+        <a href="#" id="openPfeBtn" class="btn-contact" style="font-size: 0.85rem; padding: 6px 12px; text-decoration: none;">
+            Lire le Rapport
+        </a>
+    </div>
+</div>
+
+                <div class="project-card">
+                    <h4>Portfolio Personnel</h4>
+                    <p class="project-desc">Conception de ce site web pour présenter mon parcours académique et professionnel.</p>
+                    <div class="tags-group">
+                        <span class="tag-small">HTML</span>
+                        <span class="tag-small">CSS</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <footer id="contact" class="page-section">
+            <h3>Travaillons ensemble</h3>
+            <p>Je suis à la recherche d'opportunités de stage ou d'alternance.</p>
+            <a href="mailto:youssefouerfelli0@gmail.com" class="btn-main">Envoyer un email</a>
+            <div class="links">
+                <a href="https://www.linkedin.com/in/youssef-ouerfelli-604170266" target="_blank">LinkedIn</a>
+                </div>
+            <p class="copyright">© 2026 Youssef Ouerfelli</p>
+        </footer>
+
+    </div>
+
+
+
+
+<div id="pdfModal" class="modal">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h2>Rapport de Stage - GAT Investissement</h2>
+            <span class="close">&times;</span>
+        </div>
+        
+        <div class="pdf-container">
+            <embed src="rapport.pdf" type="application/pdf" width="100%" height="100%">
+        </div>
+
+        <div class="modal-footer">
+            <p>Le document ne s'affiche pas ?</p>
+            <a href="rapport.pdf" download="Rapport_Stage_Youssef.pdf" class="btn-download">
+                 Télécharger le PDF
+            </a>
+        </div>
+    </div>
+</div>
+<div id="pfeModal" class="modal">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h2>Modélisation Mathématique - Rapport PFE</h2>
+            <span class="close pfe-close">&times;</span>
+        </div>
+        
+        <div class="pdf-container">
+            <object data="rapport-pfe.pdf" type="application/pdf" width="100%" height="100%">
+                <div style="display:flex; justify-content:center; align-items:center; height:100%; text-align:center; flex-direction:column; color: black;">
+                    <p>Votre navigateur ne peut pas afficher le PDF directement.</p>
+                    <a href="rapport-pfe.pdf" class="btn-download" style="margin-top:10px;">Télécharger le PDF</a>
+                </div>
+            </object>
+        </div>
+
+        <div class="modal-footer">
+            <a href="rapport-pfe.pdf" download="Rapport_PFE_Youssef.pdf" class="btn-download">
+                 Télécharger le PDF
+            </a>
+        </div>
+    </div>
+</div>
+
+<script>
+    // ==========================================
+    // 1. GESTION DES PAGES (NAVIGATION)
+    // ==========================================
+    const navLinks = document.querySelectorAll('.nav-content ul li a');
+    const sections = document.querySelectorAll('.page-section');
+
+    navLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+            e.preventDefault();
+            sections.forEach(s => s.classList.remove('active'));
+            const targetId = this.getAttribute('href').substring(1);
+            const targetSection = document.getElementById(targetId);
+            if (targetSection) targetSection.classList.add('active');
+        });
+    });
+
+    // ==========================================
+    // 2. GESTION DU FILTRE DES COMPÉTENCES (NOUVEAU)
+    // ==========================================
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    const skillItems = document.querySelectorAll('.skill-item');
+
+    filterBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            // Gestion du bouton actif (couleur bleue)
+            filterBtns.forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+
+            const filterValue = btn.getAttribute('data-filter');
+
+            skillItems.forEach(item => {
+                const itemCategory = item.getAttribute('data-category');
+                
+                // Si 'all' ou si la catégorie contient le filtre (ex: "math info" contient "math")
+                if (filterValue === 'all' || itemCategory.includes(filterValue)) {
+                    item.classList.remove('hidden');
+                    item.style.animation = 'fadeIn 0.5s'; // Relance l'animation
+                } else {
+                    item.classList.add('hidden');
+                }
+            });
+        });
+    });
+
+    // ==========================================
+    // 3. GESTION DE LA MODALE DÉTAILS COMPÉTENCES (NOUVEAU)
+    // ==========================================
+    const skillModal = document.getElementById('skillModal');
+    const skillModalTitle = document.getElementById('skillModalTitle');
+    const skillModalDesc = document.getElementById('skillModalDesc');
+    const skillClose = document.querySelector('.skill-close');
+
+    // Quand on clique sur une matière
+    skillItems.forEach(item => {
+        item.addEventListener('click', () => {
+            const title = item.getAttribute('data-title');
+            const desc = item.getAttribute('data-desc');
+            
+            skillModalTitle.textContent = title;
+            skillModalDesc.textContent = desc;
+            skillModal.style.display = 'block';
+        });
+    });
+
+    // Fermeture de la modale compétence
+    if(skillClose) {
+        skillClose.addEventListener('click', () => {
+            skillModal.style.display = 'none';
+        });
+    }
+
+    // ==========================================
+    // 2. GESTION DU DARK MODE
+    // ==========================================
+    const toggleButton = document.getElementById('theme-toggle');
+    const body = document.body;
+    const currentTheme = localStorage.getItem('theme');
+    
+    if (currentTheme) {
+        body.setAttribute('data-theme', currentTheme);
+        if (toggleButton && currentTheme === 'dark') toggleButton.textContent = '☀️';
+    }
+
+    if(toggleButton) {
+        toggleButton.addEventListener('click', () => {
+            const isDark = body.getAttribute('data-theme') === 'dark';
+            if (isDark) {
+                body.removeAttribute('data-theme');
+                toggleButton.textContent = '🌙';
+                localStorage.setItem('theme', 'light');
+            } else {
+                body.setAttribute('data-theme', 'dark');
+                toggleButton.textContent = '☀️';
+                localStorage.setItem('theme', 'dark');
+            }
+        });
+    }
+
+    // ==========================================
+    // 3. GESTION DES MODALES PDF (GAT + PFE)
+    // ==========================================
+    function setupModal(modalId, btnId, closeClass) {
+        const modal = document.getElementById(modalId);
+        const btn = document.getElementById(btnId);
+        const span = modal ? modal.querySelector(closeClass) : null;
+
+        if (btn && modal) {
+            btn.onclick = function(e) {
+                e.preventDefault();
+                modal.style.display = "block";
+            }
+        }
+
+        if (span && modal) {
+            span.onclick = function() {
+                modal.style.display = "none";
+            }
+        }
+
+        window.addEventListener('click', function(event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        });
+    }
+
+    setupModal("pdfModal", "openPdfBtn", ".close");
+    setupModal("pfeModal", "openPfeBtn", ".pfe-close");
+
+    document.addEventListener('keydown', function(event) {
+        if (event.key === "Escape") {
+            const modals = document.querySelectorAll('.modal');
+            modals.forEach(m => m.style.display = "none");
+        }
+    });
+    window.addEventListener('click', (e) => {
+        if (e.target.classList.contains('modal')) {
+            e.target.style.display = 'none';
+        }
+    });
+</script>
+</body>
+</html>

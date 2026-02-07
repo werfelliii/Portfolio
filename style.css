@@ -1,0 +1,568 @@
+/* =========================================
+   1. VARIABLES & THEMES (Light/Dark)
+   ========================================= */
+
+:root {
+    /* Thème CLAIR (Par défaut) */
+    --bg-color: #f8f9fa;       /* Fond général gris très clair */
+    --text-color: #333333;     /* Texte principal */
+    --text-secondary: #666666; /* Texte secondaire (dates, desc) */
+    
+    --nav-bg: #ffffff;         /* Fond de la barre de navigation */
+    --card-bg: #ffffff;        /* Fond des cartes projets/formation */
+    
+    --primary-color: #002b5c;  /* Bleu Marine (Couleur principale) */
+    --accent-color: #0056b3;   /* Bleu plus clair pour les liens/hover */
+    
+    --border-color: #e0e0e0;   /* Bordures subtiles */
+    --shadow: 0 4px 6px rgba(0,0,0,0.05); /* Ombre légère */
+    
+    --tag-bg: #e3effd;         /* Fond des étiquettes compétences */
+    --tag-text: #002b5c;       /* Texte des étiquettes */
+}
+
+/* Thème SOMBRE (Activé via JS) */
+[data-theme="dark"] {
+    --bg-color: #121212;       /* Fond presque noir */
+    --text-color: #e0e0e0;     /* Texte presque blanc */
+    --text-secondary: #b0b0b0; /* Gris clair */
+    
+    --nav-bg: #1e1e1e;         /* Navigation gris foncé */
+    --card-bg: #1e1e1e;        /* Cartes gris foncé */
+    
+    --primary-color: #64b5f6;  /* Bleu ciel (plus lisible sur fond noir) */
+    --accent-color: #90caf9;
+    
+    --border-color: #333333;   /* Bordures foncées */
+    --shadow: 0 4px 6px rgba(0,0,0,0.3); /* Ombre plus forte */
+    
+    --tag-bg: #2c3e50;         /* Fond étiquettes sombre */
+    --tag-text: #64b5f6;       /* Texte étiquettes bleu ciel */
+}
+
+/* =========================================
+   2. RESET & BASES
+   ========================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth; /* Défilement fluide quand on clique sur le menu */
+}
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    line-height: 1.6;
+    transition: background-color 0.3s ease, color 0.3s ease; /* Transition douce Dark Mode */
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    transition: 0.2s;
+}
+
+ul {
+    list-style: none;
+}
+
+/* Conteneur central pour limiter la largeur */
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* =========================================
+   3. NAVIGATION (STICKY)
+   ========================================= */
+
+nav {
+    background-color: var(--nav-bg);
+    border-bottom: 1px solid var(--border-color);
+    position: sticky; /* Reste collé en haut */
+    top: 0;
+    z-index: 1000;
+    padding: 15px 0;
+    transition: background-color 0.3s ease;
+}
+
+.nav-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+nav h1 {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--primary-color);
+}
+
+nav ul {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+nav ul li a {
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: var(--text-secondary);
+}
+
+nav ul li a:hover {
+    color: var(--primary-color);
+}
+
+/* Bouton Contact Spécial */
+.btn-contact {
+    background-color: var(--primary-color);
+    color: white !important; /* Force le blanc même en dark mode */
+    padding: 8px 16px;
+    border-radius: 6px;
+}
+
+.btn-contact:hover {
+    opacity: 0.9;
+}
+
+/* Bouton Dark Mode (Lune/Soleil) */
+#theme-toggle {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1.2rem;
+    margin-left: 15px;
+    padding: 5px;
+    border-radius: 50%;
+    transition: transform 0.2s;
+}
+
+#theme-toggle:hover {
+    transform: scale(1.1);
+    background-color: var(--border-color);
+}
+
+/* =========================================
+   4. HERO SECTION (Intro)
+   ========================================= */
+
+.hero {
+    text-align: center;
+    padding: 80px 20px 60px 20px;
+}
+
+.hero h2 {
+    font-size: 2.5rem;
+    color: var(--primary-color);
+    margin-bottom: 20px;
+    line-height: 1.2;
+}
+
+.hero p {
+    font-size: 1.15rem;
+    color: var(--text-secondary);
+    max-width: 650px;
+    margin: 0 auto 30px auto;
+}
+
+/* Tags de compétences dans le Hero */
+.skills-summary {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.tag {
+    background-color: var(--tag-bg);
+    color: var(--tag-text);
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    border: 1px solid var(--border-color);
+}
+
+/* =========================================
+   5. SECTIONS GÉNÉRALES
+   ========================================= */
+
+section {
+    padding: 60px 0;
+    border-bottom: 1px solid var(--border-color);
+}
+
+section:last-of-type {
+    border-bottom: none;
+}
+
+/* Ajustement pour l'ancre (éviter que le menu cache le titre) */
+section[id] {
+    scroll-margin-top: 80px;
+}
+
+.section-title {
+    font-size: 1.8rem;
+    margin-bottom: 30px;
+    color: var(--text-color);
+    position: relative;
+    display: inline-block;
+}
+
+/* Petite ligne bleue sous le titre */
+.section-title::after {
+    content: '';
+    display: block;
+    width: 50px;
+    height: 3px;
+    background-color: var(--primary-color);
+    margin-top: 5px;
+    border-radius: 2px;
+}
+
+/* =========================================
+   6. CARTES (Formation & Projets)
+   ========================================= */
+
+/* Style commun pour les cartes */
+.card, .project-card {
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 25px;
+    margin-bottom: 20px;
+    box-shadow: var(--shadow);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.card:hover, .project-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 15px rgba(0,0,0,0.1);
+}
+
+/* En-tête de carte (Titre + Date) */
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 10px;
+}
+
+.card h4, .project-card h4 {
+    font-size: 1.2rem;
+    color: var(--primary-color);
+    margin-bottom: 5px;
+}
+
+.date {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    font-weight: 600;
+    white-space: nowrap; /* Empêche la date de se casser en deux lignes */
+    margin-left: 15px;
+}
+
+.school {
+    font-weight: 700;
+    color: var(--text-color);
+    margin-bottom: 8px;
+}
+
+.card p, .project-desc {
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+}
+
+/* Grille pour les projets */
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+}
+
+.tags-group {
+    margin-top: 15px;
+}
+
+.tag-small {
+    display: inline-block;
+    background-color: var(--bg-color); /* Fond léger */
+    border: 1px solid var(--border-color);
+    color: var(--text-secondary);
+    font-size: 0.75rem;
+    padding: 4px 8px;
+    border-radius: 4px;
+    margin-right: 5px;
+    margin-bottom: 5px;
+}
+
+/* =========================================
+   7. FOOTER
+   ========================================= */
+
+footer {
+    text-align: center;
+    padding: 60px 20px;
+    background-color: var(--nav-bg);
+    border-top: 1px solid var(--border-color);
+    margin-top: 40px;
+}
+
+footer h3 {
+    color: var(--primary-color);
+    margin-bottom: 10px;
+}
+
+footer p {
+    color: var(--text-secondary);
+    margin-bottom: 20px;
+}
+
+.btn-main {
+    display: inline-block;
+    background-color: var(--primary-color);
+    color: white;
+    padding: 12px 25px;
+    border-radius: 6px;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+.btn-main:hover {
+    opacity: 0.9;
+    color: white;
+}
+
+.links a {
+    margin: 0 10px;
+    font-weight: 600;
+    color: var(--primary-color);
+}
+
+.copyright {
+    margin-top: 40px;
+    font-size: 0.8rem;
+    opacity: 0.7;
+}
+
+/* =========================================
+   8. RESPONSIVE (Mobile)
+   ========================================= */
+
+@media (max-width: 768px) {
+    .nav-content {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    nav ul {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 15px;
+    }
+
+    .hero h2 {
+        font-size: 2rem;
+    }
+
+    .card-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .date {
+        margin-left: 0;
+        margin-top: 5px;
+        font-size: 0.8rem;
+    }
+}
+/* --- STYLE DE LA MODALE PDF --- */
+/* --- STYLE DE LA MODALE PDF (CORRIGÉ) --- */
+.modal {
+    display: none; 
+    position: fixed; 
+    z-index: 9999; 
+    left: 0;
+    top: 0;
+    width: 100%; 
+    height: 100%; 
+    background-color: rgba(0,0,0,0.8); /* Fond plus sombre pour mieux lire */
+    backdrop-filter: blur(4px);
+}
+
+.modal-content {
+    background-color: #fff;
+    margin: 2vh auto; /* 2% du haut */
+    width: 90%; 
+    height: 90vh; /* La fenêtre fait 90% de la hauteur de l'écran */
+    max-width: 1200px; 
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column; /* Pour empiler Titre - PDF - Bouton */
+    overflow: hidden; /* Empêche de dépasser */
+}
+
+.modal-header {
+    padding: 15px 20px;
+    border-bottom: 1px solid #eee;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: var(--bg-color);
+    color: var(--text-color);
+}
+
+.pdf-container {
+    flex-grow: 1; /* Le PDF prend tout l'espace restant */
+    background-color: #525659; /* Gris foncé (couleur standard lecteur PDF) */
+}
+
+.modal-footer {
+    padding: 10px;
+    background: var(--bg-color);
+    border-top: 1px solid #eee;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+}
+
+.close {
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+    color: var(--text-color);
+}
+
+.close:hover { color: red; }
+
+.btn-download {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 8px 15px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/* --- GESTION DES PAGES (ONGLETS) --- */
+
+/* Par défaut, on cache toutes les sections qui ont cette classe */
+.page-section {
+    display: none;
+    animation: fadeIn 0.5s ease-in-out; /* Petite animation d'apparition */
+}
+
+/* On affiche SEULEMENT celle qui a la classe "active" */
+.page-section.active {
+    display: block;
+}
+
+/* L'animation d'apparition */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Petit ajustement pour le footer quand il est seul sur la page */
+footer.page-section {
+    margin-top: 0;
+    border-top: none;
+    height: 80vh; /* Prend de la hauteur pour être centré */
+    display: flex; /* Flexbox ne marche que si 'active' est ajouté via JS, voir plus bas */
+    flex-direction: column;
+    justify-content: center;
+}
+
+/* Quand le footer est actif, on force le display flex pour centrer */
+footer.page-section.active {
+    display: flex; 
+}
+
+/* --- FILTRES DE COMPÉTENCES --- */
+.skills-filter {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 30px;
+    flex-wrap: wrap;
+}
+
+.filter-btn {
+    padding: 8px 16px;
+    border: 1px solid var(--border-color);
+    background: var(--card-bg);
+    color: var(--text-secondary);
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.filter-btn:hover, .filter-btn.active {
+    background: var(--primary-color);
+    color: white;
+    border-color: var(--primary-color);
+}
+
+/* --- GRILLE DES COMPÉTENCES --- */
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Cartes responsive */
+    gap: 20px;
+}
+
+.skill-item {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+    /* Pour l'animation d'apparition */
+    animation: fadeIn 0.5s;
+}
+
+.skill-item:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow);
+    border-color: var(--primary-color);
+}
+
+.skill-item .icon {
+    font-size: 2rem;
+    display: block;
+    margin-bottom: 10px;
+}
+
+.skill-item h4 {
+    font-size: 1rem;
+    margin-bottom: 5px;
+    color: var(--text-color);
+}
+
+.tag-mini {
+    font-size: 0.75rem;
+    background: var(--tag-bg);
+    color: var(--tag-text);
+    padding: 2px 8px;
+    border-radius: 4px;
+}
+
+/* Classe pour cacher les éléments filtrés */
+.skill-item.hidden {
+    display: none;
+}
